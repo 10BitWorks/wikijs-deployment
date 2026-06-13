@@ -7,9 +7,9 @@ services:
       DB_TYPE: postgres
       DB_HOST: db
       DB_PORT: 5432
-      DB_USER: ${DB_USER}
-      DB_PASS: ${DB_PASS}
-      DB_NAME: ${DB_NAME}
+      DB_USER: wikijs
+      DB_PASS: ${SERVICE_PASSWORD_WIKI}
+      DB_NAME: wikijs
       PUID: 1000
       PGID: 1000
     depends_on:
@@ -21,9 +21,9 @@ services:
   db:
     image: postgres:15-alpine
     environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_PASSWORD: ${DB_PASS}
-      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: wikijs
+      POSTGRES_PASSWORD: ${SERVICE_PASSWORD_WIKI}
+      POSTGRES_USER: wikijs
     restart: unless-stopped
     volumes:
       - db-data:/var/lib/postgresql/data
